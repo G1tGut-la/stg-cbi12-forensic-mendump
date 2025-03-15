@@ -21,7 +21,7 @@ Proyecto de práctica académica para la **Universidad Internacional San Isidro 
 
 ## OS de prueba
 
-Debian 9 (Se tuvo que modificar la version de debian debido a que Volatility no es compatible con Debian en las versiones 11 en adelante por problemas de Kernel)
+Debian 11.0 (Se tuvo que modificar la version de debian debido a que Volatility no es compatible con Debian en las versiones 11 en adelante por problemas de Kernel)
 
 ## Requerimientos
 
