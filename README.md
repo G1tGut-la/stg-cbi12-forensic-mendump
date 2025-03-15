@@ -32,17 +32,43 @@ Debian 9 (Se tuvo que modificar la version de debian debido a que Volatility no 
 ## Instrucciones de Análisis (root)
 
 1. **Instalar y Ejecutar LiME:**
-
+   ```bash
+   sudo apt install build-essential
+   ```
    ```bash
    git clone https://github.com/504ensicsLabs/LiME.git
    ```
    ```bash
-   cd LiME
+   cd LiME/src
    ```
    ```bash
    sudo make
    ```
+   ```bash
+   sudo insmod ./lime-your_kernel_version.ko "path=/root/dump.mem format=raw"
+   ```
 
+2. **Instalar y Ejecutar Volatility**
+   ```bash
+   sudo apt install -y python3-pip
+   ```
+   ```bash
+   pip3 install volatility3
+   ```
+   ```bash
+   git clone https://github.com/volatilityfoundation/volatility3.git
+   ```
+   ```bash
+   vol.py -f /root/dump.mem imageinfo
+   ```
+   ```bash
+   vol.py -f /root/dump.mem pslist
+   ```
+
+3. **Calcular Hash del Dump de memoria**
+   ```bash
+   sha256sum /root/dump.mem
+   ```
 
 ## Video de Demostración
 
