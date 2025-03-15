@@ -35,6 +35,9 @@ Debian 11.0 (Se tuvo que modificar la version de debian debido a que Volatility 
    ```bash
    sudo apt install build-essential
    ```
+    ```bash
+   sudo apt install lime-forensics-dkms
+   ```
    ```bash
    git clone https://github.com/504ensicsLabs/LiME.git
    ```
