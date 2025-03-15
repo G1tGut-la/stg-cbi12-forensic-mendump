@@ -89,11 +89,12 @@ Debian 11.0 (Se tuvo que modificar la version de debian debido a que Volatility 
    ./vol.py -f /root/dump.mem linux.psscan.PsScan
    ```
 
-6. **Instalar y Ejecutar Volatility2:** (ejecutar en /root/)
-La instalacion de Volatility2 aun esta en curso y no pudo ser tomada en cuenta en el scope original de este ejercicio.
+## Continuacion
+6. **Instalar y Ejecutar Volatility2:** (incoming)
+La instalacion de Volatility2 aun esta pendiente y no pudo ser tomada en cuenta en el scope original de este ejercicio.
 Proximamente se estara realizando la ejecucion de Volatility2 para la extraccion de los "puertos activos" y "cuentas de usuario".
    ```bash
-   In progress... Update upcoming.
+   In progress... Update incoming.
    ```
 
 ## Video de Demostración
