@@ -69,6 +69,13 @@ Debian 11.0 (Se tuvo que modificar la version de debian debido a que Volatility 
    ```bash
    sha256sum /root/dump.mem
    ```
+4. **Configurar Volatility**
+   ```txt
+   - Para configurar Volatility, tomar el output del comando banners.Banners
+   - Usar el output para buscar el archivo de configuracion correcto para el OS de la imagen
+   - Buscar en internet (fuente externa) o en el repositorio https://github.com/Abyss-W4tcher/volatility3-symbols
+   ```
+   
 
 ## Video de Demostración
 
