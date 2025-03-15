@@ -62,10 +62,7 @@ Debian 11.0 (Se tuvo que modificar la version de debian debido a que Volatility 
    git clone https://github.com/volatilityfoundation/volatility3.git
    ```
    ```bash
-   vol.py -f /root/dump.mem imageinfo
-   ```
-   ```bash
-   vol.py -f /root/dump.mem pslist
+   ./vol.py -f /root/dump.mem banners.Banners
    ```
 
 3. **Calcular Hash del Dump de memoria**
