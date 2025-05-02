@@ -68,10 +68,11 @@ Debian 11.0 (Se tuvo que modificar la version de debian debido a que Volatility 
    ./vol.py -f /root/dump.mem banners.Banners
    ```
 
-3. **Calcular Hash del Dump de memoria**
+3. **Ajecutar Analisis forense extranyendo el Hash del archivo (segun lo solicitado en la actividad PDF) sobre la imagen en ejecucion:**
    ```bash
    sha256sum /root/dump.mem
    ```
+   ![alt text](image-1.png)
    
 4. **Configurar Volatility3**
       - Para configurar Volatility, tomar el output del comando banners.Banners (ejecutado anteriormente)
@@ -89,20 +90,22 @@ Debian 11.0 (Se tuvo que modificar la version de debian debido a que Volatility 
    ```bash
    ./vol.py -f /root/dump.mem linux.psscan.PsScan
    ```
+   ![alt text](image-3.png)
 
 6. **Ajecutar Analisis forense de los usuarios activos (segun lo solicitado en la actividad PDF) sobre la imagen en ejecucion:** (ejecutar en /root/)
    ```bash
    strings dump.mem | grep -E '/home/|/etc/passwd'
    ```
+   ![resultado de comando](image.png)
    (Este comando en Linux retornara una busqueda completa de la imagen de todos los registros de memoria de accesos a archivos en disco ubicados en "/home/" o en "/etc/passwd", esto nos dara las pistas de cuales eran los usuarios activos recientes a la hora de extraer el dump de memoria)
 
 
 ## Continuacion
-6. **Instalar y Ejecutar Volatility2 (Continuacion):**
+7. **Instalar y Ejecutar Volatility2 (Continuacion):**
 La instalacion de Volatility2 aun esta pendiente y no pudo ser tomada en cuenta en el scope original de este ejercicio.
-Proximamente se estara realizando la ejecucion de Volatility2 para la extraccion de los "puertos activos" y "cuentas de usuario".
+Proximamente se estara realizando la ejecucion de Volatility2 para la extraccion de los "puertos activos" (el plugin linux.netstat no esta diusponible en la version de volatility3, solo en la 2).
 
-7. **Instalar Python 2.7** (ejecutar en /root/)
+8. **Instalar Python 2.7** (ejecutar en /root/)
    ```bash
    sudo apt update
    ```
@@ -123,7 +126,7 @@ Proximamente se estara realizando la ejecucion de Volatility2 para la extraccion
    python2.7 --version
    ```
 
-8. **Instalar volatility2** (ejecutar en /root/)
+9. **Instalar volatility2** (ejecutar en /root/)
    ```bash
    git clone https://github.com/volatilityfoundation/volatility.git
    ```
@@ -132,7 +135,7 @@ Proximamente se estara realizando la ejecucion de Volatility2 para la extraccion
    sudo python2.7 setup.py install
    ```
 
-9. **Instalar dependencias de entorno** (ejecutar en /root/)
+10. **Instalar dependencias de entorno** (ejecutar en /root/)
    ```bash
    sudo apt-get install python2.7-dev
    ```
@@ -155,15 +158,16 @@ Proximamente se estara realizando la ejecucion de Volatility2 para la extraccion
 
    (Se da a entender que algunas dependencias estan ya configuradas en el entorno de ejecucion, con estos comandos se puede validar que dichas dependencias existan como es debido)
 
-10. **Configurar volatility2 - Reconocimiento de perfil** (Al igual que volatility3, se necesita configurar un perfil para la version especifica de Linux Kernel)
+11. **Configurar volatility2 - Reconocimiento de perfil** (Al igual que volatility3, se necesita configurar un perfil para la version especifica de Linux Kernel)
 
-      10.1. **Ajecutar Analisis forense de la version del OS (segun lo solicitado en la actividad PDF) sobre la imagen en ejecucion:**
+      11.1. **Ajecutar Analisis forense de la version del OS (segun lo solicitado en la actividad PDF) sobre la imagen en ejecucion:**
    ```bash
-   strings /roo/dump.mem | grep -i "Linux version" | uniq
+   strings /root/dump.mem | grep -i "Linux version" | uniq
    ```
    (El comando anterior retorna la version de Kernel de la imagen tomada, se spera un resultado similar a "Linux Version 5.10.0-34-amd64")
+   ![SS](image-2.png)
 
-11. **Configurar volatility2 - Descargar perfil**
+12. **Configurar volatility2 - Descargar perfil**
 
       - Para configurar Volatility, tomar el output del comando strings (ejecutado anteriormente)
       - Usar el output para buscar el archivo de configuracion correcto para el OS de la imagen linux que estamos analizando
@@ -176,13 +180,13 @@ Proximamente se estara realizando la ejecucion de Volatility2 para la extraccion
    ```
    (cambiando {user} por el nombre usuario de la VM)
 
-12. **Configurar volatility2 - Verificar carga del perfil**
+13. **Configurar volatility2 - Verificar carga del perfil**
    ```bash
    python2.7 vol.py --info | grep Linux
    ```
    (Este comando va a retornar nuestro perfil a como Volatility lo identifica)
 
-13. **Usar volatility2 - Deteccion de puertos y conexiones abiertas**
+14. **Usar volatility2 - Deteccion de puertos y conexiones abiertas**
 
 
 
