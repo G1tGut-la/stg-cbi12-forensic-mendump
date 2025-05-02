@@ -92,7 +92,7 @@ Debian 11.0 (Se tuvo que modificar la version de debian debido a que Volatility 
 
 6. **Ajecutar Analisis forense de los usuarios activos (segun lo solicitado en la actividad PDF) sobre la imagen en ejecucion:** (ejecutar en /root/)
    ```bash
-   strings dump.mem | -E '/home/|/etc/passwd'
+   strings dump.mem | grep -E '/home/|/etc/passwd'
    ```
    (Este comando en Linux retornara una busqueda completa de la imagen de todos los registros de memoria de accesos a archivos en disco ubicados en "/home/" o en "/etc/passwd", esto nos dara las pistas de cuales eran los usuarios activos recientes a la hora de extraer el dump de memoria)
 
