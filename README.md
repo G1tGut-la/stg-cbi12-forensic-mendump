@@ -83,6 +83,7 @@ Debian 11.0 (Se tuvo que modificar la version de debian debido a que Volatility 
    ```bash
    cp /home/user/Downloads/Debian_5.10.0-34-amd64_5.10.234-1_amd64.json.xz /root/volatility3/volatility3/symbols/linux/Debian_5.10.0-34-amd64_5.10.234-1_amd64.json.xz
    ```
+   (cambiando {user} por el nombre usuario de la VM)
    
 5. **Ajecutar Analisis forense de los ProcessID (segun lo solicitado en la actividad PDF) sobre la imagen en ejecucion:** (ejecutar en /root/volatility3)
    ```bash
@@ -123,6 +124,61 @@ Proximamente se estara realizando la ejecucion de Volatility2 para la extraccion
    ```bash
    sudo python2.7 setup.py install
    ```
+
+9. **Instalar dependencias de entorno** (ejecutar en /root/)
+   ```bash
+   sudo apt-get install python2.7-dev
+   ```
+
+   ```bash
+   sudo pip2.7 install pycryptodome
+   ```
+
+   ```bash
+   sudo pip2.7 install distorm3
+   ```
+
+   ```bash
+   sudo apt-get install -y yara libyara-dev
+   ```
+
+   ```bash
+   sudo pip2.7 install yara
+   ```
+
+   (Se da a entender que algunas dependencias estan ya configuradas en el entorno de ejecucion, con estos comandos se puede validar que dichas dependencias existan como es debido)
+
+10. **Configurar volatility2 - Reconocimiento de perfil** (Al igual que volatility3, se necesita configurar un perfil para la version especifica de Linux Kernel)
+
+      10.1. **Ajecutar Analisis forense de la version del OS (segun lo solicitado en la actividad PDF) sobre la imagen en ejecucion:**
+   ```bash
+   strings /roo/dump.mem | grep -i "Linux version" | uniq
+   ```
+   (El comando anterior retorna la version de Kernel de la imagen tomada, se spera un resultado similar a "Linux Version 5.10.0-34-amd64")
+
+11. **Configurar volatility2 - Descargar perfil**
+
+      - Para configurar Volatility, tomar el output del comando strings (ejecutado anteriormente)
+      - Usar el output para buscar el archivo de configuracion correcto para el OS de la imagen linux que estamos analizando
+      - Buscar en internet (fuente externa) o en el repositorio https://github.com/Abyss-W4tcher/volatility2-profiles
+      - Descargar el arhivo json (comprimido) y copiarlo en la ruta [volatility2_installation]/volatility/plugins/overlays/linux/ (conforme indica la documentacion de [github.com/Abyss-W4tcher/](https://github.com/Abyss-W4tcher/volatility2-profiles))
+
+   En mi caso:
+   ```bash
+   cp /home/user/Downloads/Debian_5.10.0-34-amd64_5.10.234-1_amd64.zip /root/volatility/volatility/plugins/overlays/linux/Debian_5.10.0-34-amd64_5.10.234-1_amd64.zip
+   ```
+   (cambiando {user} por el nombre usuario de la VM)
+
+12. **Configurar volatility2 - Verificar carga del perfil**
+   ```bash
+   python2.7 vol.py --info | grep Linux
+   ```
+   (Este comando va a retornar nuestro perfil a como Volatility lo identifica)
+
+13. **Usar volatility2 - Deteccion de puertos y conexiones abiertas**
+
+
+
 
 
 ## Video de Demostración
