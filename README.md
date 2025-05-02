@@ -209,6 +209,10 @@ La creación de estos perfiles o tablas es una tarea técnica y laboriosa, que r
 
 En resumen, aunque la debilidad de cifrado en memoria en Linux representa una oportunidad para el análisis forense, esta ventaja se ve contrarrestada por la complejidad técnica que supone mantener compatibilidad con la diversidad y dinamismo del kernel Linux. La generación de perfiles personalizados se convierte así en una tarea crítica para quienes deseen realizar investigaciones forenses confiables en entornos Linux modernos, permitiendo a herramientas como Volatility seguir siendo útiles a futuro. Sin el soporte de la comunidad, estas herramientas dejarian de ser utiles para interpretar la informacion, aunque, la informacion en bruto este alli, al libre acceso de quien sepa como consultarla correctamente.
 
+Conclucion:
+Si bien el reto era complejo por investigar y comprender las herramientas en cuestion, la labor se vio entorpecida en numerosas ocaciones por problemas de compatibilidad de Volatility y el soporte a los sistemas Linux que se querian analizar. Se sentaron las bases para poder seguir analizando y probando la herramienta, pero en este caso, el trabajo no pudo completarse al 100% debido a limitaciones de tiempo y problemas tecnicos.
+
+Me autoevaluo el esfuerzo con un 6/10 😅
 
 ---
 **⚠ ADVERTENCIA:** Este código es solo para fines educativos. No utilizado en producción ni para actividades ilicitas.
