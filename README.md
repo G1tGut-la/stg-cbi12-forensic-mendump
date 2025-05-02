@@ -90,13 +90,38 @@ Debian 11.0 (Se tuvo que modificar la version de debian debido a que Volatility 
    ```
 
 ## Continuacion
-6. **Instalar y Ejecutar Volatility2:**
+6. **Instalar y Ejecutar Volatility2 (Continuacion):**
 La instalacion de Volatility2 aun esta pendiente y no pudo ser tomada en cuenta en el scope original de este ejercicio.
 Proximamente se estara realizando la ejecucion de Volatility2 para la extraccion de los "puertos activos" y "cuentas de usuario".
 
 7. **Instalar Python 2.7** (ejecutar en /root/)
    ```bash
-   
+   sudo apt update
+   ```
+
+   ```bash
+   sudo apt install python2.7
+   ```
+
+   ```bash
+   wget https://bootstrap.pypa.io/pip/2.7/get-pip.py
+   ```
+
+   ```bash
+   sudo python2.7 get-pip.py
+   ```
+
+   ```bash
+   python2.7 --version
+   ```
+
+8. **Instalar volatility2** (ejecutar en /root/)
+   ```bash
+   git clone https://github.com/volatilityfoundation/volatility.git
+   ```
+
+   ```bash
+   sudo python2.7 setup.py install
    ```
 
 
